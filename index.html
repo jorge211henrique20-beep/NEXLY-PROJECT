@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nexly – Download oficial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f7fb;--surface:#fff;--text:#12142a;--muted:#5b5f7a;--line:#e1e3ef;--accent:#5b4bff;--accent2:#00c2a8;--accent-text:#fff;--glow:rgba(91,75,255,.18);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0e1c;--surface:#161830;--text:#eef0ff;--muted:#a3a7c7;--line:#262a4d;--accent:#8a7dff;--accent2:#2ee6c8;--accent-text:#0d0e1c;--glow:rgba(138,125,255,.25)}}
+:root[data-theme="dark"]{--bg:#0d0e1c;--surface:#161830;--text:#eef0ff;--muted:#a3a7c7;--line:#262a4d;--accent:#8a7dff;--accent2:#2ee6c8;--accent-text:#0d0e1c;--glow:rgba(138,125,255,.25)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:"Space Grotesk",system-ui,sans-serif;line-height:1.15;margin:0}
+a{color:var(--accent)}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:5}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font:700 22px "Space Grotesk",sans-serif;letter-spacing:-.5px;color:var(--text);text-decoration:none}
+.logo b{color:var(--accent)}
+nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-size:15px}
+nav a:hover{color:var(--text)}
+.hero{padding:72px 0 56px;text-align:left}
+.badge{display:inline-block;border:1px solid var(--line);background:var(--surface);padding:6px 14px;border-radius:99px;font-size:14px;color:var(--muted)}
+.hero h1{font-size:clamp(38px,7vw,68px);margin:20px 0 16px;letter-spacing:-2px;max-width:14ch}
+.hero p{color:var(--muted);max-width:52ch;font-size:18px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-text);border:0;border-radius:14px;padding:16px 28px;font:700 17px "Space Grotesk",sans-serif;cursor:pointer;box-shadow:0 10px 30px var(--glow);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--accent2);outline-offset:3px}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none;margin-left:10px}
+.cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+section{padding:48px 0}
+section h2{font-size:clamp(26px,4vw,36px);margin-bottom:22px;letter-spacing:-1px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px 16px 62px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--accent-text);display:grid;place-items:center;font:700 15px "Space Grotesk"}
+details{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;padding:0 18px}
+summary{cursor:pointer;padding:16px 0;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;color:var(--accent);line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 16px;color:var(--muted)}
+.legal{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px}
+.legal h3{font-size:18px;margin:22px 0 6px}
+.legal h3:first-child{margin-top:0}
+.legal p,.legal li{color:var(--muted);font-size:15px}
+.legal ul{padding-left:20px}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:14px}
+/* modal */
+dialog{border:1px solid var(--line);border-radius:22px;background:var(--surface);color:var(--text);padding:28px;max-width:460px;width:calc(100% - 32px)}
+dialog::backdrop{background:rgba(5,6,20,.6);backdrop-filter:blur(4px)}
+dialog h3{font-size:24px;margin-bottom:10px}
+dialog ol{padding-left:20px;color:var(--muted)}
+dialog label{display:flex;gap:10px;align-items:flex-start;margin:16px 0;font-size:14px;color:var(--muted)}
+dialog .row{display:flex;gap:10px;flex-wrap:wrap}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
+@media(max-width:560px){nav{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="#">Nex<b>ly</b></a>
+<nav><a href="#como">Como instalar</a><a href="#faq">Perguntas</a><a href="#termos">Termos</a></nav>
+</div></header>
+
+<main class="wrap">
+<div class="hero">
+<span class="badge">Distribuição autorizada Nexly</span>
+<h1>Baixe o app Nexly.</h1>
+<p>Download direto, rápido e gratuito pelo site oficial da empresa. Leia as instruções antes de instalar.</p>
+<div class="cta">
+<button class="btn" id="open">Baixar agora</button>
+<a class="btn ghost" href="#como" style="text-decoration:none">Como instalar</a>
+</div>
+</div>
+
+<section id="como">
+<h2>Como instalar</h2>
+<ol class="steps">
+<li>Clique em <b>Baixar agora</b> e confirme que leu as instruções.</li>
+<li>Aguarde o download da pasta compactada (.zip).</li>
+<li><b>Extraia a pasta</b> completa. Não execute de dentro do .zip.</li>
+<li>Abra a pasta extraída e execute o arquivo <b>.exe</b>.</li>
+</ol>
+</section>
+
+<section>
+<h2>Por que usar o site oficial</h2>
+<div class="grid">
+<div class="card"><h3>Origem verificada</h3><p>Arquivos publicados diretamente pela equipe Nexly.</p></div>
+<div class="card"><h3>Sem cadastro</h3><p>Baixe sem criar conta e sem informar dados pessoais.</p></div>
+<div class="card"><h3>Atualizações</h3><p>Novas versões são publicadas aqui primeiro.</p></div>
+</div>
+</section>
+
+<section id="faq">
+<h2>Perguntas frequentes</h2>
+<details><summary>O arquivo possui vírus?</summary><p>Não. A Nexly não trabalha com vírus, malware ou qualquer software malicioso, e a empresa se responsabiliza pelos arquivos distribuídos neste site. Baixe sempre apenas pelo site oficial.</p></details>
+<details><summary>Por que o antivírus pode exibir um alerta?</summary><p>Alguns antivírus sinalizam programas novos ou pouco conhecidos por precaução (falso positivo). Se tiver dúvida, entre em contato com a gente antes de executar.</p></details>
+<details><summary>O download é gratuito?</summary><p>Sim, o download pelo site é gratuito.</p></details>
+<details><summary>Como abro o programa depois de baixar?</summary><p>Extraia a pasta .zip completa e abra o arquivo .exe que está dentro dela.</p></details>
+<details><summary>Coletam meus dados?</summary><p>Este site não exige cadastro. Veja a seção de Privacidade nos termos abaixo.</p></details>
+<details><summary>Posso redistribuir ou vender o app?</summary><p>Não sem autorização por escrito da Nexly. Veja os Termos de Uso.</p></details>
+<details><summary>Encontrei um erro. O que faço?</summary><p>Fale com o suporte pelo contato no rodapé.</p></details>
+</section>
+
+<section id="termos">
+<h2>Termos, direitos autorais e privacidade</h2>
+<div class="legal">
+<h3>1. Titularidade e direitos autorais</h3>
+<p>O nome Nexly, o logotipo, o software, o código, textos, imagens e demais conteúdos deste site são protegidos pela legislação de direitos autorais e de propriedade intelectual (Lei nº 9.610/98 e Lei nº 9.609/98). Todos os direitos reservados.</p>
+<h3>2. Licença de uso</h3>
+<p>Concedemos licença pessoal, limitada, não exclusiva e revogável para usar o software. É proibido:</p>
+<ul>
+<li>copiar, modificar, descompilar ou fazer engenharia reversa, salvo quando a lei permitir;</li>
+<li>vender, alugar, sublicenciar ou redistribuir o software sem autorização por escrito;</li>
+<li>remover avisos de direitos autorais ou marcas;</li>
+<li>usar o software para fins ilegais ou para prejudicar terceiros.</li>
+</ul>
+<h3>3. Marcas e terceiros</h3>
+<p>Marcas, nomes e logotipos de terceiros citados neste site pertencem aos seus respectivos donos e não indicam parceria, a menos que informado. Componentes de código aberto, quando houver, seguem suas próprias licenças.</p>
+<h3>4. Denúncia de violação</h3>
+<p>Se você acredita que algum conteúdo deste site viola direitos autorais, envie ao contato abaixo: identificação da obra, link do conteúdo e seus dados. Analisaremos e, se procedente, removeremos o conteúdo.</p>
+<h3>5. Isenção de garantias e responsabilidade</h3>
+<p>O software é fornecido "no estado em que se encontra". A Nexly empenha-se em entregar arquivos seguros e livres de código malicioso, mas não se responsabiliza por danos decorrentes de mau uso, de arquivos obtidos fora deste site ou de alterações feitas por terceiros, nos limites da lei.</p>
+<h3>6. Privacidade (LGPD)</h3>
+<p>Este site não exige cadastro. Dados técnicos básicos (como IP e navegador) podem ser tratados pela hospedagem para segurança e funcionamento. Você pode solicitar informações ou exclusão de dados pelo contato abaixo, conforme a Lei nº 13.709/2018.</p>
+<h3>7. Alterações</h3>
+<p>Estes termos podem ser atualizados a qualquer momento. O uso continuado do site indica concordância com a versão vigente.</p>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap">
+<p>© <span id="y"></span> Nexly. Todos os direitos reservados. Site oficial de distribuição autorizada.<br>Contato: <a href="mailto:contato@nexly.com">contato@nexly.com</a></p>
+</div></footer>
+
+<dialog id="dlg">
+<h3>Antes de baixar</h3>
+<ol>
+<li>Extraia a pasta baixada (não abra de dentro do .zip).</li>
+<li>Abra a pasta extraída e execute o arquivo <b>.exe</b>.</li>
+</ol>
+<label><input type="checkbox" id="ok"> Li as instruções e concordo com os <a href="#termos" id="tl">Termos de Uso</a>.</label>
+<div class="row">
+<a class="btn" id="go" href="#" aria-disabled="true" style="text-decoration:none">Baixar pasta</a>
+<button class="btn ghost" id="close" style="margin:0">Cancelar</button>
+</div>
+</dialog>
+
+<script>
+// COLE AQUI o link de download da pasta do GitHub:
+// Ex.: https://github.com/USUARIO/REPO/archive/refs/heads/main.zip
+var DOWNLOAD_URL="https://github.com/USUARIO/REPOSITORIO/archive/refs/heads/main.zip";
+var d=document.getElementById("dlg"),ok=document.getElementById("ok"),go=document.getElementById("go");
+document.getElementById("y").textContent=new Date().getFullYear();
+function sync(){ if(ok.checked){go.setAttribute("href",DOWNLOAD_URL);go.removeAttribute("aria-disabled");go.style.opacity=1;go.style.pointerEvents="auto"}else{go.setAttribute("href","#");go.setAttribute("aria-disabled","true");go.style.opacity=.45;go.style.pointerEvents="none"} }
+document.getElementById("open").onclick=function(){ok.checked=false;sync();d.showModal()};
+document.getElementById("close").onclick=function(){d.close()};
+document.getElementById("tl").onclick=function(){d.close()};
+ok.onchange=sync;sync();
+go.addEventListener("click",function(){setTimeout(function(){d.close()},400)});
+</script>
+</body>
+</html>
