@@ -1,207 +1,258 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Nexly – Download oficial</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#f5f6ff;--bg2:#ebecff;--card:rgba(255,255,255,.7);--text:#0e1030;--muted:#575b82;--line:rgba(70,70,150,.16);--a:#5b4bff;--b:#00b4d8;--c:#ff4fd8;--on:#fff;--glow:rgba(91,75,255,.35);--grid:rgba(70,70,150,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#05060f;--bg2:#0b0d24;--card:rgba(255,255,255,.045);--text:#f2f3ff;--muted:#9a9fc8;--line:rgba(255,255,255,.1);--a:#8b7dff;--b:#2fe3ff;--c:#ff6be3;--on:#05060f;--glow:rgba(139,125,255,.5);--grid:rgba(255,255,255,.05)}}
-:root[data-theme="dark"]{--bg:#05060f;--bg2:#0b0d24;--card:rgba(255,255,255,.045);--text:#f2f3ff;--muted:#9a9fc8;--line:rgba(255,255,255,.1);--a:#8b7dff;--b:#2fe3ff;--c:#ff6be3;--on:#05060f;--glow:rgba(139,125,255,.5);--grid:rgba(255,255,255,.05)}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:-2;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 75%)}
-h1,h2,h3{font-family:Sora,system-ui,sans-serif;margin:0;line-height:1.08}
-a{color:var(--a)}
-.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-.glass{background:var(--card);border:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
-.grad{background:linear-gradient(100deg,var(--a),var(--b) 50%,var(--c));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
-@keyframes shine{to{background-position:200% center}}
-header{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:10;max-width:1080px;margin:12px auto 0;padding:0 22px}
-.bar{display:flex;align-items:center;justify-content:space-between;height:58px;padding:0 9px 0 22px;border-radius:99px}
-.logo{font:800 22px Sora,sans-serif;color:var(--text);text-decoration:none;letter-spacing:-1px}
-nav{display:flex;align-items:center;gap:22px}
-nav a.l{color:var(--muted);text-decoration:none;font-size:15px}
-nav a.l:hover{color:var(--text)}
-.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(120deg,var(--a),var(--b));color:var(--on);border:0;border-radius:99px;padding:18px 34px;font:600 17px Sora,sans-serif;cursor:pointer;text-decoration:none;box-shadow:0 14px 50px var(--glow);transition:transform .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 20px 70px var(--glow)}
-.btn.sm{padding:11px 22px;font-size:14px;box-shadow:none}
-.btn.ghost{background:var(--card);color:var(--text);border:1px solid var(--line);box-shadow:none}
-.btn:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--b);outline-offset:3px}
-.btn[aria-disabled="true"]{opacity:.4;pointer-events:none;box-shadow:none}
-.hero{position:relative;text-align:center;padding:96px 0 30px}
-.orb{position:absolute;left:50%;top:-120px;width:720px;height:720px;max-width:150vw;transform:translateX(-50%);border-radius:50%;background:conic-gradient(from 0deg,var(--a),var(--b),var(--c),var(--a));filter:blur(90px);opacity:.38;z-index:-1;animation:spin 22s linear infinite}
-@keyframes spin{to{transform:translateX(-50%) rotate(360deg)}}
-.pill{display:inline-flex;gap:9px;align-items:center;padding:8px 18px;border-radius:99px;font-size:14px;color:var(--muted)}
-.dot{width:8px;height:8px;border-radius:50%;background:#22d39a;box-shadow:0 0 0 4px rgba(34,211,154,.2);animation:pulse 2s infinite}
-@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(34,211,154,0)}}
-.hero h1{font-size:clamp(46px,10vw,112px);font-weight:800;letter-spacing:-4px;margin:28px auto 22px;max-width:12ch}
-.sub{color:var(--muted);font-size:clamp(17px,2.4vw,21px);max-width:46ch;margin:0 auto}
-.cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:38px}
-.meta{margin-top:20px;font-size:14px;color:var(--muted)}
-.mock{margin:64px auto 0;max-width:820px;border-radius:26px;overflow:hidden;box-shadow:0 50px 120px -30px var(--glow);text-align:left;transform:perspective(1200px) rotateX(5deg);transition:transform .5s}
-.mock:hover{transform:perspective(1200px) rotateX(0)}
-.mock .top{display:flex;gap:7px;padding:15px 20px;border-bottom:1px solid var(--line)}
-.mock .top b{width:11px;height:11px;border-radius:50%;background:var(--line)}
-.mock .bd{display:grid;grid-template-columns:160px 1fr;min-height:250px}
-.mock .sd{border-right:1px solid var(--line);padding:20px;display:grid;gap:11px;align-content:start}
-.mock .mn{padding:24px;display:grid;gap:14px;align-content:start}
-.mock u{display:block;height:10px;border-radius:6px;background:var(--line)}
-.mock .hl{height:100px;border-radius:16px;background:linear-gradient(120deg,var(--a),var(--b),var(--c));background-size:200% 100%;animation:shine 5s linear infinite;opacity:.9}
-.strip{overflow:hidden;margin:46px 0 0;mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent)}
-.strip div{display:flex;gap:46px;width:max-content;animation:mq 26s linear infinite;font:600 15px Sora,sans-serif;color:var(--muted);white-space:nowrap}
-@keyframes mq{to{transform:translateX(-50%)}}
-section{padding:80px 0}
-h2{font-size:clamp(30px,5.5vw,54px);letter-spacing:-2px;margin-bottom:14px}
-.lead{color:var(--muted);max-width:52ch;margin:0 0 38px}
-.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
-.tile{border-radius:26px;padding:28px;position:relative;overflow:hidden}
-.tile::after{content:"";position:absolute;inset:0;background:radial-gradient(320px circle at var(--mx,50%) var(--my,0%),var(--glow),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
-.tile:hover::after{opacity:.55}
-.tile h3{font-size:21px;margin-bottom:8px;letter-spacing:-.5px}
-.tile p{margin:0;color:var(--muted);font-size:15px}
-.big{font:800 48px Sora;letter-spacing:-2px;margin-bottom:10px}
-.t1{grid-column:span 4}.t2,.t3{grid-column:span 2}.t4{grid-column:span 3}.t5{grid-column:span 3}
-@media(max-width:720px){.bento>*{grid-column:span 6!important}.mock .bd{grid-template-columns:1fr}.mock .sd{display:none}nav a.l{display:none}.hero h1{letter-spacing:-2px}}
-.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:s}
-.steps li{counter-increment:s;display:flex;gap:22px;align-items:center;border-radius:24px;padding:24px 28px}
-.steps li::before{content:counter(s);flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:linear-gradient(120deg,var(--a),var(--b));color:var(--on);font:800 22px Sora}
-.steps h3{font-size:20px;margin-bottom:2px}
-.steps p{margin:0;color:var(--muted);font-size:15px}
-details{border-radius:20px;margin-bottom:10px;padding:0 24px}
-summary{cursor:pointer;padding:20px 0;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:12px}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:26px;line-height:1;color:var(--b);transition:transform .25s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{margin:0 0 20px;color:var(--muted)}
-.legal{border-radius:28px;padding:34px}
-.legal h3{font-size:18px;margin:26px 0 6px}
-.legal h3:first-child{margin-top:0}
-.legal p,.legal li{color:var(--muted);font-size:15px}
-footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted);font-size:14px;text-align:center}
-.js .rv{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}
-.js .rv.in{opacity:1;transform:none}
-dialog{border:1px solid var(--line);border-radius:30px;background:var(--bg2);color:var(--text);padding:32px;max-width:480px;width:calc(100% - 32px);box-shadow:0 50px 140px var(--glow)}
-dialog::backdrop{background:rgba(3,4,16,.7);backdrop-filter:blur(8px)}
-dialog h3{font-size:28px;margin-bottom:12px;letter-spacing:-1px}
-dialog ol{padding-left:20px;color:var(--muted)}
-dialog label{display:flex;gap:10px;align-items:flex-start;margin:18px 0;font-size:14px;color:var(--muted)}
-dialog .row{display:flex;gap:10px;flex-wrap:wrap}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>GameLab e Studio — crie e jogue no celular</title>
+  <meta name="description" content="Dois apps para Android: o Studio para criar jogos em HTML, CSS e JavaScript, e o GameLab para jogar os jogos publicados.">
+  <meta name="theme-color" content="#0E1013">
+  <style>
+    /* ====== Onde trocar os links dos APKs: procure por "downloads/" no HTML ====== */
+    :root {
+      color-scheme: dark;
+      --bg: #0E1013;
+      --panel: #16191E;
+      --raised: #1B2026;
+      --line: #23282F;
+      --line-strong: #323941;
+      --text: #E7EBEF;
+      --muted: #89929C;
+      --faint: #5B646D;
+      --sun: #D3A06A;
+      --light: #DDE3E9;
+      --on-light: #0E1013;
+      --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1040px, 100% - 40px); margin-inline: auto; }
+
+    /* Topo */
+    header.top { border-bottom: 1px solid var(--line); }
+    .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -0.2px; text-decoration: none; }
+    .mark {
+      width: 26px; height: 26px; border-radius: 7px; background: var(--panel);
+      border: 1px solid var(--line-strong); display: grid; place-items: center;
+      font: 700 11px var(--mono); color: var(--sun);
+    }
+    .top nav { display: flex; gap: 22px; font-size: 14px; color: var(--muted); }
+    .top nav a { text-decoration: none; }
+    .top nav a:hover { color: var(--text); }
+
+    /* Hero */
+    .hero { padding: 76px 0 56px; }
+    .kicker { font: 600 11px var(--mono); letter-spacing: 1.6px; color: var(--sun); text-transform: uppercase; }
+    h1 { font-size: clamp(34px, 6vw, 58px); line-height: 1.06; letter-spacing: -1.4px; margin: 14px 0 18px; max-width: 14em; }
+    .lead { color: var(--muted); font-size: clamp(16px, 2.2vw, 19px); max-width: 38em; margin: 0 0 30px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+      padding: 13px 20px; border-radius: 12px; font-weight: 700; font-size: 15px;
+      border: 1px solid transparent; transition: transform .12s ease, background .12s ease;
+    }
+    .btn svg { width: 18px; height: 18px; flex: none; }
+    .btn:active { transform: scale(.98); }
+    .btn.primary { background: var(--light); color: var(--on-light); }
+    .btn.primary:hover { background: #fff; }
+    .btn.ghost { background: var(--raised); border-color: var(--line-strong); color: var(--text); }
+    .btn.ghost:hover { background: var(--panel); }
+    .btn:focus-visible, a:focus-visible { outline: 2px solid var(--sun); outline-offset: 3px; }
+
+    /* Apps */
+    section { padding: 36px 0; }
+    h2 { font-size: 26px; letter-spacing: -0.5px; margin: 0 0 6px; }
+    .sub { color: var(--muted); margin: 0 0 24px; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .card {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
+      padding: 26px; display: flex; flex-direction: column;
+    }
+    .card .tag { font: 600 11px var(--mono); letter-spacing: 1.4px; color: var(--sun); text-transform: uppercase; }
+    .card h3 { font-size: 28px; letter-spacing: -0.6px; margin: 8px 0 6px; }
+    .card p.what { color: var(--muted); margin: 0 0 18px; }
+    .card ul { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 10px; flex: 1; }
+    .card li { display: flex; gap: 10px; font-size: 15px; }
+    .card li::before {
+      content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--sun);
+      margin-top: 10px; flex: none;
+    }
+    .card .meta { margin-top: 12px; font-size: 12px; color: var(--faint); }
+
+    /* Instalar */
+    .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; counter-reset: s; }
+    .steps li {
+      counter-increment: s; display: flex; gap: 14px; padding: 16px 18px; border-radius: 14px;
+      background: var(--panel); border: 1px solid var(--line);
+    }
+    .steps li::before {
+      content: counter(s); flex: none; width: 26px; height: 26px; border-radius: 50%;
+      display: grid; place-items: center; font: 700 12px var(--mono);
+      color: var(--on-light); background: var(--sun);
+    }
+    .steps b { display: block; margin-bottom: 2px; }
+    .steps span { color: var(--muted); font-size: 14px; }
+
+    /* Aviso */
+    .notice {
+      display: grid; grid-template-columns: auto 1fr; gap: 18px;
+      border: 1px solid var(--sun); background: rgba(211, 160, 106, 0.07);
+      border-radius: 18px; padding: 24px;
+    }
+    .notice svg { width: 28px; height: 28px; color: var(--sun); margin-top: 2px; }
+    .notice h2 { font-size: 21px; margin-bottom: 8px; }
+    .notice p { margin: 0 0 12px; color: #C9D0D7; }
+    .notice p:last-child { margin: 0; }
+    .notice .safe { color: var(--text); font-weight: 600; }
+
+    footer { margin-top: 40px; border-top: 1px solid var(--line); padding: 26px 0 40px; color: var(--faint); font-size: 13px; }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+
+    @media (max-width: 760px) {
+      .grid, .steps { grid-template-columns: 1fr; }
+      .hero { padding: 48px 0 36px; }
+      .top nav { display: none; }
+      .notice { grid-template-columns: 1fr; gap: 10px; padding: 20px; }
+      .btn { width: 100%; justify-content: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
+    }
+  </style>
 </head>
 <body>
-<header><div class="bar glass">
-<a class="logo" href="#">Nex<span class="grad">ly</span></a>
-<nav><a class="l" href="#como">Instalar</a><a class="l" href="#faq">Perguntas</a><a class="l" href="#termos">Termos</a><button class="btn sm" data-open>Baixar</button></nav>
-</div></header>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="#">
+        <span class="mark" aria-hidden="true">&lt;/&gt;</span>
+        GameLab e Studio
+      </a>
+      <nav aria-label="Principal">
+        <a href="#apps">Os apps</a>
+        <a href="#instalar">Como instalar</a>
+        <a href="#aviso">Aviso</a>
+      </nav>
+    </div>
+  </header>
 
-<main class="wrap">
-<div class="hero">
-<div class="orb"></div>
-<span class="pill glass"><span class="dot"></span>Distribuição autorizada Nexly</span>
-<h1>Seu app. <span class="grad">Direto da fonte.</span></h1>
-<p class="sub">Baixe pelo site oficial da Nexly. Rápido, gratuito e sem cadastro.</p>
-<div class="cta">
-<button class="btn" data-open>Baixar agora</button>
-<a class="btn ghost" href="#como">Como instalar</a>
-</div>
-<div class="meta">Para Windows · Arquivo .zip com instalador .exe</div>
-<div class="mock glass" aria-hidden="true">
-<div class="top"><b></b><b></b><b></b></div>
-<div class="bd"><div class="sd"><u></u><u style="width:70%"></u><u style="width:85%"></u><u style="width:55%"></u></div>
-<div class="mn"><div class="hl"></div><u style="width:82%"></u><u style="width:58%"></u></div></div>
-</div>
-<div class="strip" aria-hidden="true"><div><span>● Site oficial</span><span>● Sem cadastro</span><span>● Download gratuito</span><span>● Sem vírus</span><span>● Atualizações aqui</span><span>● Site oficial</span><span>● Sem cadastro</span><span>● Download gratuito</span><span>● Sem vírus</span><span>● Atualizações aqui</span></div></div>
-</div>
+  <main>
+    <div class="wrap">
+      <div class="hero">
+        <div class="kicker">Para Android</div>
+        <h1>Crie jogos no celular. Jogue os de todo mundo.</h1>
+        <p class="lead">
+          O Studio é um editor de código para fazer jogos em HTML, CSS e JavaScript direto do aparelho.
+          O GameLab é onde os jogos publicados aparecem para qualquer pessoa jogar.
+        </p>
+        <div class="cta">
+          <!-- Troque os dois links abaixo pelo endereço real dos seus arquivos .apk -->
+          <a class="btn primary" href="https://github.com/jorge211henrique20-beep/PROJECT-NEXLY-/releases/download/v1.0/GameLab.apk">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 11 5 5 5-5"/><path d="M5 20h14"/></svg>
+            Baixar o GameLab
+          </a>
+          <a class="btn ghost" href="https://github.com/jorge211henrique20-beep/PROJECT-NEXLY-/releases/download/v1.1/Studio.apk">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 11 5 5 5-5"/><path d="M5 20h14"/></svg>
+            Baixar o Studio
+          </a>
+        </div>
+      </div>
+    </div>
 
-<section>
-<h2 class="rv">Por que baixar <span class="grad">aqui</span></h2>
-<p class="lead rv">O site oficial é o único lugar com a versão publicada pela equipe.</p>
-<div class="bento">
-<div class="tile glass t1 rv"><div class="big grad">100%</div><h3>Origem verificada</h3><p>Os arquivos são publicados diretamente pela Nexly. Evite links de terceiros.</p></div>
-<div class="tile glass t2 rv"><div class="big grad">0</div><h3>Cadastro</h3><p>Nada de conta ou dados pessoais.</p></div>
-<div class="tile glass t3 rv"><div class="big grad">R$ 0</div><h3>Gratuito</h3><p>Download sem custo.</p></div>
-<div class="tile glass t4 rv"><h3>Sempre atualizado</h3><p>Novas versões chegam primeiro aqui, no mesmo link.</p></div>
-<div class="tile glass t5 rv"><h3>Seguro</h3><p>A Nexly não trabalha com vírus e se responsabiliza pelos arquivos do site.</p></div>
-</div>
-</section>
+    <section id="apps">
+      <div class="wrap">
+        <h2>Os dois apps</h2>
+        <p class="sub">Um para criar, outro para jogar. Os dois se atualizam sozinhos.</p>
+        <div class="grid">
+          <article class="card">
+            <div class="tag">Jogue</div>
+            <h3>GameLab</h3>
+            <p class="what">A vitrine de jogos. Abra, procure e jogue o que as pessoas publicaram.</p>
+            <ul>
+              <li>Lista de jogos publicados, com busca pelo nome</li>
+              <li>Cada jogo abre e roda dentro do app, sem instalar mais nada</li>
+              <li>Recebe os jogos novos e as versões atualizadas</li>
+              <li>Atualiza o próprio app automaticamente</li>
+            </ul>
+            <a class="btn primary" href="https://github.com/jorge211henrique20-beep/PROJECT-NEXLY-/releases/download/v1.0/GameLab.apk">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 11 5 5 5-5"/><path d="M5 20h14"/></svg>
+              Baixar o GameLab (APK)
+            </a>
+            <div class="meta">Arquivo .apk para Android · cerca de 100 MB · VirusTotal: 0 de 67 antivírus marcaram</div>
+          </article>
 
-<section id="como">
-<h2 class="rv">Instale em <span class="grad">4 passos</span></h2>
-<p class="lead rv">Siga na ordem. Leva menos de um minuto.</p>
-<ol class="steps">
-<li class="glass rv"><div><h3>Baixe</h3><p>Clique em Baixar agora e confirme que leu as instruções.</p></div></li>
-<li class="glass rv"><div><h3>Aguarde</h3><p>O navegador baixa a pasta compactada (.zip).</p></div></li>
-<li class="glass rv"><div><h3>Extraia</h3><p>Extraia a pasta completa. Não execute de dentro do .zip.</p></div></li>
-<li class="glass rv"><div><h3>Abra o .exe</h3><p>Dentro da pasta extraída, execute o arquivo .exe.</p></div></li>
-</ol>
-</section>
+          <article class="card">
+            <div class="tag">Crie</div>
+            <h3>Studio</h3>
+            <p class="what">Um editor de código no bolso, feito para criar jogos e publicar quando ficarem prontos.</p>
+            <ul>
+              <li>Editor com cores no código, números de linha e desfazer</li>
+              <li>Arquivos e pastas, com imagens e sons dentro do projeto</li>
+              <li>Teste o jogo na hora e veja os erros em um console</li>
+              <li>Publica no GameLab quando você quiser</li>
+              <li>Atualiza o próprio app automaticamente</li>
+            </ul>
+            <a class="btn primary" href="https://github.com/jorge211henrique20-beep/PROJECT-NEXLY-/releases/download/v1.1/Studio.apk">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 11 5 5 5-5"/><path d="M5 20h14"/></svg>
+              Baixar o Studio (APK)
+            </a>
+            <div class="meta">Arquivo .apk para Android</div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section id="faq">
-<h2 class="rv">Perguntas <span class="grad">frequentes</span></h2>
-<p class="lead rv">Respostas rápidas antes de baixar.</p>
-<details class="glass rv"><summary>O arquivo possui vírus?</summary><p>Não. A Nexly não trabalha com vírus, malware ou qualquer software malicioso, e a empresa se responsabiliza pelos arquivos distribuídos neste site. Baixe sempre apenas pelo site oficial.</p></details>
-<details class="glass rv"><summary>Por que o antivírus pode exibir um alerta?</summary><p>Alguns antivírus sinalizam programas novos ou pouco conhecidos por precaução (falso positivo). O arquivo do site oficial é seguro.</p></details>
-<details class="glass rv"><summary>O download é gratuito?</summary><p>Sim, o download pelo site é gratuito.</p></details>
-<details class="glass rv"><summary>Como abro o programa depois de baixar?</summary><p>Extraia a pasta .zip completa e abra o arquivo .exe que está dentro dela.</p></details>
-<details class="glass rv"><summary>Vocês coletam meus dados?</summary><p>Este site não exige cadastro. Veja a seção de privacidade nos termos abaixo.</p></details>
-<details class="glass rv"><summary>Posso redistribuir ou vender o app?</summary><p>Não, sem autorização por escrito da Nexly. Veja os Termos de Uso.</p></details>
-</section>
+    <section id="instalar">
+      <div class="wrap">
+        <h2>Como instalar</h2>
+        <p class="sub">Leva cerca de um minuto. Os passos são os mesmos para os dois apps.</p>
+        <ol class="steps">
+          <li><div><b>Baixe o arquivo</b><span>Toque em Baixar e espere o arquivo .apk terminar de baixar.</span></div></li>
+          <li><div><b>Abra o arquivo</b><span>Toque no aviso de download concluído ou procure na pasta Downloads.</span></div></li>
+          <li><div><b>Permita a instalação</b><span>Se o Android pedir, libere a instalação de apps vindos do navegador que você usou.</span></div></li>
+          <li><div><b>Instale</b><span>Toque em Instalar. Se aparecer um alerta de segurança, leia o aviso logo abaixo.</span></div></li>
+        </ol>
+      </div>
+    </section>
 
-<section id="termos">
-<h2 class="rv">Termos e <span class="grad">privacidade</span></h2>
-<div class="legal glass rv">
-<h3>1. Titularidade e direitos autorais</h3>
-<p>O nome Nexly, o logotipo, o software, o código, os textos, as imagens e os demais conteúdos deste site são protegidos pela legislação de direitos autorais e propriedade intelectual (Lei nº 9.610/98 e Lei nº 9.609/98). Todos os direitos reservados.</p>
-<h3>2. Licença de uso</h3>
-<p>Concedemos licença pessoal, limitada, não exclusiva e revogável para usar o software. É proibido:</p>
-<ul><li>copiar, modificar, descompilar ou fazer engenharia reversa, salvo quando a lei permitir;</li><li>vender, alugar, sublicenciar ou redistribuir o software sem autorização por escrito;</li><li>remover avisos de direitos autorais ou marcas;</li><li>usar o software para fins ilegais ou para prejudicar terceiros.</li></ul>
-<h3>3. Marcas e terceiros</h3>
-<p>Marcas, nomes e logotipos de terceiros citados neste site pertencem aos seus donos e não indicam parceria, a menos que informado. Componentes de código aberto, quando houver, seguem suas próprias licenças.</p>
-<h3>4. Denúncia de violação</h3>
-<p>Quem acreditar que algum conteúdo deste site viola direitos autorais pode avisar a Nexly pelos canais oficiais da empresa, informando a obra e o link do conteúdo. Analisaremos e, se procedente, removeremos o conteúdo.</p>
-<h3>5. Isenção de garantias e responsabilidade</h3>
-<p>O software é fornecido “no estado em que se encontra”. A Nexly se empenha em entregar arquivos seguros e livres de código malicioso, mas não se responsabiliza por danos decorrentes de mau uso, de arquivos obtidos fora deste site ou de alterações feitas por terceiros, nos limites da lei.</p>
-<h3>6. Privacidade (LGPD)</h3>
-<p>Este site não exige cadastro. Dados técnicos básicos (como IP e navegador) podem ser tratados pela hospedagem para segurança e funcionamento. Pedidos sobre dados pessoais podem ser feitos pelos canais oficiais da Nexly, conforme a Lei nº 13.709/2018.</p>
-<h3>7. Alterações</h3>
-<p>Estes termos podem ser atualizados a qualquer momento. O uso continuado do site indica concordância com a versão vigente.</p>
-</div>
-</section>
-</main>
+    <section id="aviso">
+      <div class="wrap">
+        <div class="notice" role="note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+          <div>
+            <h2>O Android pode dizer que o app é perigoso</h2>
+            <p>
+              Esses apps não estão na Play Store. Por isso, ao instalar, o Android e o Google Play Protect
+              podem mostrar um alerta como “app perigoso” ou “app não verificado”.
+              É o aviso padrão do sistema para qualquer app instalado fora da loja.
+            </p>
+            <p class="safe">Os apps não possuem nenhum tipo de vírus.</p>
+            <p>
+              Para sua segurança, baixe os arquivos somente desta página. Os jogos do GameLab são feitos por outras
+              pessoas e rodam dentro de uma janela do app, separada do resto do seu celular.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<footer><div class="wrap">© <span id="y"></span> Nexly. Todos os direitos reservados. Site oficial de distribuição autorizada.</div></footer>
-
-<dialog id="dlg">
-<h3>Antes de baixar</h3>
-<ol><li>Extraia a pasta baixada (não abra de dentro do .zip).</li><li>Abra a pasta extraída e execute o arquivo <b>.exe</b>.</li></ol>
-<label><input type="checkbox" id="ok"> Li as instruções e concordo com os <a href="#termos" id="tl">Termos de Uso</a>.</label>
-<div class="row">
-<a class="btn" id="go" href="#" aria-disabled="true">Baixar pasta</a>
-<button class="btn ghost" id="close">Cancelar</button>
-</div>
-</dialog>
-
-<script>
-// COLE AQUI o link de download da pasta do GitHub:
-// Ex.: https://github.com/USUARIO/REPO/archive/refs/heads/main.zip
-var DOWNLOAD_URL="https://github.com/USUARIO/REPOSITORIO/archive/refs/heads/main.zip";
-var d=document.getElementById("dlg"),ok=document.getElementById("ok"),go=document.getElementById("go");
-document.getElementById("y").textContent=new Date().getFullYear();
-function sync(){if(ok.checked){go.setAttribute("href",DOWNLOAD_URL);go.removeAttribute("aria-disabled")}else{go.setAttribute("href","#");go.setAttribute("aria-disabled","true")}}
-document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=function(){ok.checked=false;sync();d.showModal()}});
-document.getElementById("close").onclick=function(){d.close()};
-document.getElementById("tl").onclick=function(){d.close()};
-ok.onchange=sync;sync();
-go.addEventListener("click",function(){setTimeout(function(){d.close()},400)});
-// efeitos
-document.documentElement.classList.add("js");
-if("IntersectionObserver" in window){var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{threshold:.12});document.querySelectorAll(".rv").forEach(function(el){io.observe(el)})}else{document.querySelectorAll(".rv").forEach(function(el){el.classList.add("in")})}
-document.querySelectorAll(".tile").forEach(function(t){t.addEventListener("pointermove",function(e){var r=t.getBoundingClientRect();t.style.setProperty("--mx",(e.clientX-r.left)+"px");t.style.setProperty("--my",(e.clientY-r.top)+"px")})});
-</script>
+  <footer>
+    <div class="wrap">
+      <span>GameLab e Studio · aplicativos para Android</span>
+      <span>Feito para criar e jogar no celular</span>
+    </div>
+  </footer>
 </body>
 </html>
